@@ -4,12 +4,16 @@
 #include <fstream>
 #include <sstream>
 
-vector<document> load_documents(const string& directory_path) {
+vector<document> load_documents(const string& directory_path, int num_files) {
     vector<document> documents;
-    int current_index = 0, id_counter = 0;
+    int current_index = 0;
+    int id_counter = 0;
+    int files_read = 0; 
 
     // -> lectura de archivos en el directorio
     for(const auto& file : filesystem::directory_iterator(directory_path)) {
+        if (files_read >= num_files) break;
+
         if(file.is_regular_file()) {
             ifstream infile(file.path());
             if(!infile.is_open()) {
@@ -32,6 +36,8 @@ vector<document> load_documents(const string& directory_path) {
             current_index += content.size() + 1; // -> actualizar índice para siguiente documento
 
             documents.push_back(doc);
+
+            files_read++;
         }
     }
 

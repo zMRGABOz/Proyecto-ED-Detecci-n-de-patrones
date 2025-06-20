@@ -15,11 +15,12 @@ struct document {
 };
 
 /**
- * @brief función para cargar documentos y su contenido desde un directorio.
+ * @brief función para cargar documentos y su contenido desde un directorio
  * 
- * @param directory_path ruta hacia el directorio.
+ * @param directory_path ruta hacia el directorio
+ * @param num_files cantidad de archivos a leer
  */
-vector<document> load_documents(const string& directory_path);
+vector<document> load_documents(const string& directory_path, int num_files);
 
 /**
 *

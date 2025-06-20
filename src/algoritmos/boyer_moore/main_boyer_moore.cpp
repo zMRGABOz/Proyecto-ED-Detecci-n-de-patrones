@@ -13,7 +13,7 @@ int main() {
     cout << "Ingrese ruta del dataset particionado: ";
     getline(cin, ruta);
 
-    vector<document> docs = load_documents(ruta);
+    vector<document> docs = load_documents(ruta, 10);
 
     for(auto& doc : docs) {
         int freq = searchBM(doc.text, patron);
