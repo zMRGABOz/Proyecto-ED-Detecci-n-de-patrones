@@ -21,4 +21,10 @@ struct document {
  */
 vector<document> load_documents(const string& directory_path);
 
+/**
+*
+* @param ruta_patron ruta en donde se encuentran los patrones a probar
+*/
+vector<string> cargarPatrones(const string& ruta_patron) {
+
 #endif

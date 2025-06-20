@@ -37,3 +37,16 @@ vector<document> load_documents(const string& directory_path) {
 
     return documents;
 }
+
+
+vector<string> cargarPatrones(const string& ruta_patron) {
+    vector<string> patrones;
+    ifstream archivo(ruta_patron);
+    string linea;
+
+    while (std::getline(archivo, linea)) {
+        if (!linea.empty())
+            patrones.push_back(linea);
+    }
+    return patrones;
+}
