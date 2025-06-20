@@ -1,3 +1,8 @@
+# Ignorar ejecutables generados
+boyer_moore
+a.out
+*.exe
+
 datos_de_pruebas/documentos/*
 datos_de_pruebas/patrones/*
 !datos_de_pruebas/documentos/.gitkeep
