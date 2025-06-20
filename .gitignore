@@ -1,0 +1,4 @@
+# Ignorar ejecutables generados
+boyer_moore
+a.out
+*.exe

@@ -2,7 +2,7 @@
  * Autor principal: Marcos Martínez Rojas (marCRACK29)
  * Fecha: 17/06/2025
  * Descripción: algoritmo Boyer-Moore 
- * Última modificación: 17/06/2025
+ * Última modificación: 20/06/2025
  * Basandose en: https://www.geeksforgeeks.org/dsa/boyer-moore-algorithm-for-pattern-searching/ 
  * Se añade la heuristica de good suffix. 
 */
@@ -10,7 +10,7 @@
 #include "boyer_moore.h"
 #include <iostream>
 
-void badCharHeuristic(string str, int size, int badchar[NO_OF_CHARS]) {
+void badCharHeuristic(string pat, int size, int badchar[NO_OF_CHARS]) {
     // llenar badchar con -1 que es el valor por defecto para indicar que 
     // el carácter no existe en el patrón. 
     for (int i = 0; i < NO_OF_CHARS; i++)
@@ -19,26 +19,29 @@ void badCharHeuristic(string str, int size, int badchar[NO_OF_CHARS]) {
     // Actualiza con las posiciones reales.
     // La conversion (int)str[i] obtiene el valor ASCII del carácter. 
     for (int i = 0; i < size; i++)
-        badchar[(int)str[i]] = i;
+        badchar[(int)pat[i]] = i;
 }
 
-void preprocessGoodSuffix(string pat, int m, int shift[], int suffix[]) {
-    int i = m, j = m + 1;
+void preprocessGoodSuffix(string pat, int size, int shift[], int suffix[]) {
+    int i = size, j = size + 1;
     suffix[i] = j;
 
     while (i > 0) {
-        while (j <= m && pat[i - 1] != pat[j - 1]) {
+        while (j <= size && pat[i - 1] != pat[j - 1]) {
+            // realiza los "saltos"
             if (shift[j] == 0)
                 shift[j] = j - i;
             j = suffix[j];
         }
+        // si encuentra una coincidencia, reduce ambos índices
         i--; j--;
-        suffix[i] = j;
+        suffix[i] = j; // el arreglo apunta al índice del próximo sufijo válido (prefijo del patrón)
     }
 
     // Preprocesar shift[]
+    // rellena cualquier shift[i] que haya quedado en cero
     j = suffix[0];
-    for (int i = 0; i <= m; i++) {
+    for (int i = 0; i <= size; i++) {
         if (shift[i] == 0)
             shift[i] = j;
         if (i == j)
@@ -47,7 +50,6 @@ void preprocessGoodSuffix(string pat, int m, int shift[], int suffix[]) {
 }
 
 int searchBM(const string& txt, const string& pat) {
-    // vector<int> posiciones;
     int count = 0;
     int m = pat.size();
     int n = txt.size();
@@ -74,16 +76,11 @@ int searchBM(const string& txt, const string& pat) {
             j--;
         
         if (j < 0) {
-            cout << "Patrón se produce en el turno = " << s << endl;
-            // posiciones.push_back(s);
+            //cout << "Patrón se produce en el turno = " << s << endl;
             count ++;
-            // Calcular el nuevo desplazamiento.
-            //s += (s + m < n) ? m - badchar[txt[s + m]] : 1;
             s += shift[0];
         } else {
             // mismatch o desajuste.
-            //s += max(1, j - badchar[txt[s + j]]);
-
             int bc_shift = max(1, j - badchar[(int)txt[s + j]]);
             int gs_shift = shift[j + 1];
             s += max(bc_shift, gs_shift);
