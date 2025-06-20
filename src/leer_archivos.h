@@ -26,6 +26,6 @@ vector<document> load_documents(const string& directory_path, int num_files);
 *
 * @param ruta_patron ruta en donde se encuentran los patrones a probar
 */
-vector<string> cargarPatrones(const string& ruta_patron) {
+vector<string> cargarPatrones(const string& ruta_patron);
 
 #endif

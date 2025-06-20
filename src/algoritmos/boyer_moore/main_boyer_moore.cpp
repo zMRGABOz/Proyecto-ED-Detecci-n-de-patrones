@@ -8,16 +8,23 @@
 // ./boyer_moore
 
 int main() {
-    string ruta;
-    string patron = "GATC";
+    string ruta_documentos;
+    string ruta_patron;
     cout << "Ingrese ruta del dataset particionado: ";
-    getline(cin, ruta);
+    getline(cin, ruta_documentos);
 
-    vector<document> docs = load_documents(ruta, 10);
+    cout << "Ingrese ruta del set de patrones: ";
+    getline(cin, ruta_patron);
 
-    for(auto& doc : docs) {
-        int freq = searchBM(doc.text, patron);
-        cout << "Archivo: " << doc.name << " -> " << freq << " ocurrencias.\n";
+    vector<document> docs = load_documents(ruta_documentos, 10);
+    vector<string> patrones = cargarPatrones(ruta_patron);
+
+    for(auto& patron : patrones){
+        cout<< "El patron a probar es: " << patron<<endl;
+        for(auto& doc : docs) {
+            int freq = searchBM(doc.text, patron);
+            cout << "Archivo: " << doc.name << " -> " << freq << " ocurrencias.\n";
+        }
     }
     return 0;
 }
