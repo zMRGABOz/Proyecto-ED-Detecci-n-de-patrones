@@ -1,0 +1,39 @@
+#include "leer_archivos.h"
+#include <iostream>
+#include <filesystem>
+#include <fstream>
+#include <sstream>
+
+vector<document> load_documents(const string& directory_path) {
+    vector<document> documents;
+    int current_index = 0, id_counter = 0;
+
+    // -> lectura de archivos en el directorio
+    for(const auto& file : filesystem::directory_iterator(directory_path)) {
+        if(file.is_regular_file()) {
+            ifstream infile(file.path());
+            if(!infile.is_open()) {
+                cerr << "Error al abrir el documento: " << file.path() << endl;
+                continue;
+            }
+
+            stringstream buffer;
+            buffer << infile.rdbuf(); // -> lectura contenido del archivo
+            string content = buffer.str();
+
+            // -> creación documento y adición al vector
+            document doc;
+            doc.id = id_counter++; // -> id del documento (posición en directorio)
+            doc.name = file.path().filename().string(); // -> nombre del archivo
+            doc.text = content; // -> texto del documento
+            doc.start_index = current_index; // -> índice de inicio en el texto concatenado
+            doc.end_index = current_index + content.size() - 1;
+
+            current_index += content.size() + 1; // -> actualizar índice para siguiente documento
+
+            documents.push_back(doc);
+        }
+    }
+
+    return documents;
+}
