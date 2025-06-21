@@ -38,7 +38,7 @@ void computeLPSArray(string pattern,  int m, vector<int> &LPS) {
 }
 
 // Algoritmo KPM para buscar el patrón en el texto
-vector<int> KMP(string pattern, string text) {
+int KMP(string pattern, string text) {
 
     int m = pattern.length(); //Se almacena tamaño del patrón
     int n = text.length(); //Se almacena tamaño del texto
@@ -78,5 +78,6 @@ vector<int> KMP(string pattern, string text) {
             }
         }
     }
-    return ans;
+    //return ans; //versión original
+    return ans.size(); 
 }
