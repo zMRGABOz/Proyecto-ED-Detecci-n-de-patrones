@@ -1,3 +1,12 @@
+/**
+ * Autor principal: Pablo Villagrán Hermanns (pvilla14)
+ * Fecha: 20/06/2025
+ * Descripción: Implementacion de sufffix array con preffix doubling  
+ * Última modificación: 22/06/2025
+ * Basandose en: https://www.geeksforgeeks.org/dsa/suffix-array-set-2-a-nlognlogn-algorithm/
+ * Se implemento personalmente la busqueda binaria doble y la concatenacion de textos
+*/
+
 #include "SuffixArray.h"
 
 using namespace std;

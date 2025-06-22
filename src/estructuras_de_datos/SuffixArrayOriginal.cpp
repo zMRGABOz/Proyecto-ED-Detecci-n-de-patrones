@@ -1,3 +1,12 @@
+/**
+ * Autor principal: Pablo Villagrán Hermanns (pvilla14)
+ * Fecha: 20/06/2025
+ * Descripción: Implementacion de sufffix array tradicional 
+ * Última modificación: 22/06/2025
+ * Basandose en: https://www.geeksforgeeks.org/cpp/cpp-program-to-implement-suffix-array/
+ * Se implemento personalmente la busqueda binaria doble y la concatenacion de textos 
+*/
+
 #include "SuffixArray.h"
 
 
