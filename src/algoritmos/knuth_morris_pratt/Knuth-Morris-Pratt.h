@@ -9,6 +9,7 @@ void computeLPSArray(std::string pattern, int m, std::vector<int>& LPS);
 
 // Algoritmo KMP para buscar el patrón en el texto
 // Retorna un vector con las posiciones iniciales donde se encuentra el patrón
-std::vector<int> KMP(std::string pattern, std::string text);
+//std::vector<int> KMP(std::string pattern, std::string text); // implementación original
+int KMP(std::string pattern, std::string text); // versión para pruebas
 
 #endif 

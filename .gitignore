@@ -6,4 +6,7 @@ a.out
 datos_de_pruebas/documentos/*
 datos_de_pruebas/patrones/*
 !datos_de_pruebas/documentos/.gitkeep
+!datos_de_pruebas/patrones/.gitkeepdatos_de_pruebas/documentos/*
+datos_de_pruebas/patrones/*
+!datos_de_pruebas/documentos/.gitkeep
 !datos_de_pruebas/patrones/.gitkeep
