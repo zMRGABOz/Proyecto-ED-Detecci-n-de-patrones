@@ -24,7 +24,7 @@ string obtenerFragmentoAleatorio(const string& texto, std::mt19937& gen, int lar
 int main(){
    const string ruta_entrada = "../datos_de_pruebas/documentos/";
    const string ruta_salida = "../datos_de_pruebas/patrones/";
-   string todos;
+   vector<string> todos; // Vector de documentos, cada elemento es el contenido de un documento
 
    for(const auto& file: directory_iterator(ruta_entrada)){
         ifstream archivo(file.path());
@@ -34,19 +34,20 @@ int main(){
             getline(archivo,linea);
             aux+=linea;
         }
-        todos+=aux;
+        todos.push_back(aux); // Se añade el contenido de un archivo a un elemento del vector
         archivo.close();
     }
 
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    for(int i : {100, 200, 300, 1000, 2000}){
+    for(int i : {100, 200, 300, 400, 500, 1000, 2000}){
         vector<string> patrones;
         std::unordered_set<string> usados; //para evitar patrones usados
-
+        int iterador = 0;
         while (patrones.size() < i) {
-            string fragmento = obtenerFragmentoAleatorio(todos, gen);
+            string fragmento = obtenerFragmentoAleatorio(todos[iterador % todos.size()], gen);
+            iterador++;
             if (!fragmento.empty() && usados.find(fragmento) == usados.end()) {
                 patrones.push_back(fragmento);
                 usados.insert(fragmento);
