@@ -16,7 +16,7 @@ int main(int argc,  char** argv) {
     string ruta_patron = argv[1];
     int num_docs = stoi(argv[2]);
 
-    vector<document> docs = load_documents(ruta_documentos, num_docs);
+    vector<document> docs = cargarDocumentos(ruta_documentos, num_docs);
     vector<string> patrones = cargarPatrones(ruta_patron);
 
     auto start = chrono::high_resolution_clock::now();

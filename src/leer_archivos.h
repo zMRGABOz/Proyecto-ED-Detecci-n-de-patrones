@@ -20,7 +20,7 @@ struct document {
  * @param directory_path ruta hacia el directorio
  * @param num_files cantidad de archivos a leer
  */
-vector<document> load_documents(const string& directory_path, int num_files);
+vector<document> cargarDocumentos(const string& directory_path, int num_files);
 
 /**
 *

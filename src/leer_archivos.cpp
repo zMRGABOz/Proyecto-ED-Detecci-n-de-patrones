@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-vector<document> load_documents(const string& directory_path, int num_files) {
+vector<document> cargarDocumentos(const string& directory_path, int num_files) {
     vector<document> documents;
     int current_index = 0;
     int id_counter = 0;
@@ -43,7 +43,6 @@ vector<document> load_documents(const string& directory_path, int num_files) {
 
     return documents;
 }
-
 
 vector<string> cargarPatrones(const string& ruta_patron) {
     vector<string> patrones;
