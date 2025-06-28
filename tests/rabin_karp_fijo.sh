@@ -6,7 +6,7 @@ for ((c=1;c<=20;c++))
 do
     for n in 5 10 20 25 30 35 40
     do  
-        ../src/algoritmos/boyer_moore/boyer_moore ../datos_de_pruebas/patrones/patron_300 ${n}
+        ../src/algoritmos/robin_karp/rk ../datos_de_pruebas/patrones/patron_300 ${n}
     done
 
     # Resto de las implementaciones
