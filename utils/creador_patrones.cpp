@@ -22,8 +22,8 @@ string obtenerFragmentoAleatorio(const string& texto, std::mt19937& gen, int lar
 
 
 int main(){
-   const string ruta_entrada = "../datos_de_pruebas/documentos/";
-   const string ruta_salida = "../datos_de_pruebas/patrones/";
+   const string ruta_entrada = "../datos_de_pruebas/documentos/Sources";
+   const string ruta_salida = "../datos_de_pruebas/patrones/patrones_sources/";
    vector<string> todos; // Vector de documentos, cada elemento es el contenido de un documento
 
    for(const auto& file: directory_iterator(ruta_entrada)){
