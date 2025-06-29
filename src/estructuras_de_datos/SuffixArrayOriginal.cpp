@@ -38,18 +38,13 @@ vector<int> build_suffix_array(string &texto) {
 }
 
 
-string concatenar_textos(const vector<string>& textos, vector<int>& texto_por_pos) {
+string concatenar_textos(const vector<string>& textos) {
     string resultado;
     //guarda a que texto pertenece cada caracter, y lo escribe en el resultado
-    for (int i = 0; i < textos.size(); ++i) {
-        for (char c : textos[i]) {
-            resultado += c;
-            texto_por_pos.push_back(i);  // ID del texto
-        }
-        resultado += '$';                // separador
-        texto_por_pos.push_back(-1);     // separador no pertenece a ningún texto
+    for(string s : textos){
+        resultado += s;
+        resultado += "$";
     }
-
     return resultado;
 }
 
@@ -57,14 +52,14 @@ map<int, int> contar_ocurrencias_por_texto(
     const string& texto_total,
     const vector<int>& suffix_array,
     const string& subfrase,
-    const vector<int>& texto_por_pos) {
+    const vector<int>& largos_texto) {
 
     int n = suffix_array.size();
     int len = subfrase.length();
 
     int izq = 0, der = n;
 
-    // Buscar lower_bound
+    // Buscar lower_bound con una busqueda binaria
     while (izq < der) {
         int mid = (izq + der) / 2;
         string sufijo = texto_total.substr(suffix_array[mid], len);
@@ -76,7 +71,7 @@ map<int, int> contar_ocurrencias_por_texto(
 
     int lower = izq;
 
-    // Buscar upper_bound
+    // Buscar upper_bound con una busqueda binaria 
     izq = 0, der = n;
     while (izq < der) {
         int mid = (izq + der) / 2;
@@ -93,9 +88,17 @@ map<int, int> contar_ocurrencias_por_texto(
 
     for (int i = lower; i < upper; ++i) {
         int pos_global = suffix_array[i]; //la posicion del suffix array donde se encontro el patron
-        int id_texto = texto_por_pos[pos_global]; //el vector texto_por_pos sabe a que texto pertence
-                                                  //cada caracter, por lo que busca a que texto pertence 
-                                                  //y lo guarda
+        int id_texto;
+        for(int t = 0; t < largos_texto.size(); t++){  //por cada pocicion de largo textos tenemos 
+            if(pos_global < largos_texto[t]){     //el texto + el caracte '$', por lo que si es igual
+                id_texto = t;       //se estaría considerando el caracter '$', lo  cual está mal
+                break;              //para ello vemos si es menor, y si lo es, 
+            }                       //pertenece a ese texto
+            else if(pos_global == largos_texto[t]){
+                id_texto = -1;
+            }
+        }
+
         if (id_texto != -1) {
             conteo_por_texto[id_texto]++; //si resulta que el texto existe, le añade uno para
                                           //señalar que se econtro el patron en ese texto 
@@ -111,17 +114,21 @@ int main() {
         "la casa azul",
         "otra flor roja",
         "el perro duerme en la casa",
-        "una flor roja y otra flor roja"
+        "una flor roja y otra flor rojae"
     };
-
-    vector<int> texto_por_pos;
-    string texto_total = concatenar_textos(textos, texto_por_pos);
+    vector<int> largos_textos;
+    int acumulado = 0;
+    for (const string& s : textos) {
+        acumulado += s.length() + 1;  // +1 por el '$'
+        largos_textos.push_back(acumulado);
+    }
+    string texto_total = concatenar_textos(textos);
     vector<int> suffix_array = build_suffix_array(texto_total);
 
-    string subfrase = "flor roja";
+    string subfrase = "e";
 
     map<int, int> resultados = contar_ocurrencias_por_texto(
-    texto_total, suffix_array, subfrase, texto_por_pos
+    texto_total, suffix_array, subfrase, largos_textos
     );
 
     if (!resultados.empty()) {

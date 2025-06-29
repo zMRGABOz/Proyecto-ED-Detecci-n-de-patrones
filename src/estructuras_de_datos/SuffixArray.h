@@ -53,14 +53,11 @@ vector<int> build_suffix_array(string &texto);
 /**
  * @brief concatena distintos textos obtenidos de varios documentos, 
  * dejando un simbolo "$" entre cada uno de ellos
- * Para ello concatena letra por letra los textos y a su vez
- * crea un vector con posicion de cada letra, esto con el fin de poder usarlo en la busqueda
- * binaria, y saber a que posicion de que 
  * 
  * @param textos vector con los textos que se deben concatenar
- * @param texto_por_pos vector que se modifica, e indica en que posicion empieza cada texto
+ * @return los textos concatenados
  */
-string concatenar_textos(const vector<string>& textos, vector<int>& texto_por_pos);
+string concatenar_textos(const vector<string>& textos);
 
 /**
  * @brief funcion que implementa una doble busqueda binaria, 
@@ -72,11 +69,12 @@ string concatenar_textos(const vector<string>& textos, vector<int>& texto_por_po
  * @param suffix_array vector con los indices de los sufijos ordenados
  * lexicograficamente
  * @param subfrase es la patron que se intenta localizar en los textos
- * @param texto_po_pos vector que indica a que texto pertenece cada caracter
+ * @param largos_textos vector que indica el largo de los textos, mas el signo '$'
+ * para separarlos, pero acomodados como suma de prefijos
  * @return un mapa que indica cuantas veces aparece el patron en cada texto
  */
 map<int, int> contar_ocurrencias_por_texto(
     const string& texto_total,
     const vector<int>& suffix_array,
     const string& subfrase,
-    const vector<int>& texto_por_pos);
+    const vector<int>& largos_textos);
