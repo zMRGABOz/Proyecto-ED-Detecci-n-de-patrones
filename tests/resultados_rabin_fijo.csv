@@ -1,4 +1,0 @@
-ejecutable;numPatrones;numDocs;tiempo
-../src/algoritmos/robin_karp/rk;300;5;41.6728
-../src/algoritmos/robin_karp/rk;300;10;82.694
-../src/algoritmos/robin_karp/rk;300;20;172.669

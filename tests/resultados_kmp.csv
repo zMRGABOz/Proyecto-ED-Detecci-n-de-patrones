@@ -1,8 +1,0 @@
-ejecutable;numPatrones;numDocs;tiempo
-../src/algoritmos/knuth_morris_pratt/kmp;100;10;40.0501
-../src/algoritmos/knuth_morris_pratt/kmp;200;10;80.8359
-../src/algoritmos/knuth_morris_pratt/kmp;300;10;121.818
-../src/algoritmos/knuth_morris_pratt/kmp;1000;10;409.808
-../src/algoritmos/knuth_morris_pratt/kmp;2000;10;817.116
-../src/algoritmos/knuth_morris_pratt/kmp;100;10;42.9869
-../src/algoritmos/knuth_morris_pratt/kmp;200;10;85.6044

@@ -8,12 +8,14 @@
 // ./boyer_moore
 
 int main(int argc,  char** argv) {
-    if(argc < 3) 
-        cerr << "Uso: " << argv[0] << " <ruta a patron> <numero de archivos>" << endl;  
+    if(argc < 4) 
+        cerr << "Uso: " << argv[0] << " <ruta a patron> <ruta documento> <numero de archivos>" << endl;  
     
-    string ruta_documentos = "../../../datos_de_pruebas/documentos/DNA";
+    //string ruta_documentos = "../../../datos_de_pruebas/documentos/DNA";
+    string ruta_documentos = argv [2];
     string ruta_patron = argv[1];
-    int cant_documentos = atoi(argv[2]);
+    int cant_documentos = atoi(argv[3]);
+    
     vector<document> docs = cargarDocumentos(ruta_documentos, cant_documentos);
     vector<string> patrones = cargarPatrones(ruta_patron);
 
@@ -33,7 +35,7 @@ int main(int argc,  char** argv) {
     auto end = chrono::high_resolution_clock::now();
     double running_time = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
     running_time *= 1e-9; // Convertir a segundos
-    cout << argv[0] << ";" << patrones.size()<< ";" <<docs.size()<< ";" <<running_time << endl;
+    cout << "./boyer_moore"<< ";" << patrones.size()<< ";" <<docs.size()<< ";" <<running_time << endl;
     return 0;
     /*
     for(auto& patron : patrones){

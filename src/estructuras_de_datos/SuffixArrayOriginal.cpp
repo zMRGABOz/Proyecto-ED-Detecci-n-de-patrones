@@ -260,7 +260,7 @@ int main(){
 }
 
 
-//g++ .\SuffixArrayOriginal.cpp  ../leer_archivos.cpp -o SuffixArrayOriginal
+//g++ SuffixArrayOriginal.cpp  ../leer_archivos.cpp -o SuffixArrayOriginal
 //./SuffixArrayOriginal
 
 
