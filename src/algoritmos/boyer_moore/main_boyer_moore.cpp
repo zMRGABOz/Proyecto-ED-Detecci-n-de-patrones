@@ -11,7 +11,7 @@ int main(int argc,  char** argv) {
     if(argc < 3) 
         cerr << "Uso: " << argv[0] << " <ruta a patron> <numero de archivos>" << endl;  
     
-    string ruta_documentos = "../datos_de_pruebas/documentos";
+    string ruta_documentos = "../../../datos_de_pruebas/documentos/DNA";
     string ruta_patron = argv[1];
     int cant_documentos = atoi(argv[2]);
     vector<document> docs = cargarDocumentos(ruta_documentos, cant_documentos);

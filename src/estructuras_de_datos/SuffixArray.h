@@ -1,9 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <fstream> 
 #include <string>
 #include <map>
+#include <chrono>
+#include "../leer_archivos.h"
 using namespace std;
+
 
 
 /**
@@ -54,10 +58,11 @@ vector<int> build_suffix_array(string &texto);
  * @brief concatena distintos textos obtenidos de varios documentos, 
  * dejando un simbolo "$" entre cada uno de ellos
  * 
- * @param textos vector con los textos que se deben concatenar
+ * @param documentos vector de documentos, que contiene la estructura 
+ * con los textos, y la info
  * @return los textos concatenados
  */
-string concatenar_textos(const vector<string>& textos);
+string concatenar_textos(vector<document>& documentos);
 
 /**
  * @brief funcion que implementa una doble busqueda binaria, 
