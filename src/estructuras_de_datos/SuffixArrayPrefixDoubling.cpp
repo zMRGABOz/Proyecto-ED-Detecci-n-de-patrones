@@ -167,9 +167,6 @@ map<int, int> contar_ocurrencias_por_texto(
 }
 
 
-//g++ .\SuffixArrayPrefixDoubling.cpp  ../leer_archivos.cpp -o SuffixArrayPrefixDoubling
-//./SuffixArrayPrrefixDoubling
-
 
 //codigo para generar suffix array con prefix doubling precomputados
 void Precomputar_suffix_arrays(){
@@ -307,6 +304,9 @@ void Precomputar_suffix_arrays(){
     }
 
 }
+
+//g++ .\SuffixArrayPrefixDoubling.cpp  ../leer_archivos.cpp -o SuffixArrayPrefixDoubling
+//./SuffixArrayPrrefixDoubling
 
 //codigo para evaluar patrones con suffix arrays precomputados
 int main(int argc, char** argv) {
