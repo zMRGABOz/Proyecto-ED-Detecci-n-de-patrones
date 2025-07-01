@@ -311,8 +311,9 @@ void Precomputar_suffix_arrays(){
 //codigo para evaluar patrones con suffix arrays precomputados
 int main(int argc, char** argv) {
 
-    //Precomputar_suffix_arrays();
+    Precomputar_suffix_arrays();
 
+    /*
     if (argc < 3) {
         cerr << "Uso: " << argv[0] << " <ruta a archivo de patrones; > "<< argv[1] << "<cant_documentos>" << endl;
         return 1;
@@ -373,4 +374,5 @@ int main(int argc, char** argv) {
 
 
     return 0;
+    */
 }
