@@ -2,9 +2,8 @@
  * Autor principal: Marcos Martínez Rojas (marCRACK29)
  * Fecha: 17/06/2025
  * Descripción: algoritmo Boyer-Moore 
- * Última modificación: 20/06/2025
+ * Última modificación: 01/07/2025
  * Basandose en: https://www.geeksforgeeks.org/dsa/boyer-moore-algorithm-for-pattern-searching/ 
- * Se añade la heuristica de good suffix. 
 */
 
 #include "boyer_moore.h"
@@ -19,34 +18,7 @@ void badCharHeuristic(string pat, int size, int badchar[NO_OF_CHARS]) {
     // Actualiza con las posiciones reales.
     // La conversion (int)str[i] obtiene el valor ASCII del carácter. 
     for (int i = 0; i < size; i++)
-        badchar[(int)pat[i]] = i;
-}
-
-void preprocessGoodSuffix(string pat, int size, int shift[], int suffix[]) {
-    int i = size, j = size + 1;
-    suffix[i] = j;
-
-    while (i > 0) {
-        while (j <= size && pat[i - 1] != pat[j - 1]) {
-            // realiza los "saltos"
-            if (shift[j] == 0)
-                shift[j] = j - i;
-            j = suffix[j];
-        }
-        // si encuentra una coincidencia, reduce ambos índices
-        i--; j--;
-        suffix[i] = j; // el arreglo apunta al índice del próximo sufijo válido (prefijo del patrón)
-    }
-
-    // Preprocesar shift[]
-    // rellena cualquier shift[i] que haya quedado en cero
-    j = suffix[0];
-    for (int i = 0; i <= size; i++) {
-        if (shift[i] == 0)
-            shift[i] = j;
-        if (i == j)
-            j = suffix[j];
-    }
+        badchar[(unsigned char)pat[i]] = i;
 }
 
 int searchBM(const string& txt, const string& pat) {
@@ -58,11 +30,6 @@ int searchBM(const string& txt, const string& pat) {
 
     int badchar[NO_OF_CHARS];
     badCharHeuristic(pat, m, badchar);
-
-    int *shift = new int[m + 1]();   // Inicializa en 0
-    int *suffix = new int[m + 1];
-
-    preprocessGoodSuffix(pat, m, shift, suffix);
 
     // Desplazamiento del patrón sobre el texto, la iniciamos en cero.
     int s = 0; 
@@ -78,16 +45,17 @@ int searchBM(const string& txt, const string& pat) {
         if (j < 0) {
             //cout << "Patrón se produce en el turno = " << s << endl;
             count ++;
-            s += shift[0];
+            // Calcular siguiente desplazamiento
+            // Si hay más texto después del patrón, usar bad character
+            // Si no, mover al menos 1 posición
+            s += (s + m < n) ? m - badchar[(unsigned char)txt[s + m]] : 1;
         } else {
-            // mismatch o desajuste.
-            int bc_shift = max(1, j - badchar[(int)txt[s + j]]);
-            int gs_shift = shift[j + 1];
-            s += max(bc_shift, gs_shift);
+            // mismatch
+            int bad_char_shift = j - badchar[(unsigned char)txt[s + j]];
+            // Tomar el máximo desplazamiento, pero al menos 1
+             s += max(1, bad_char_shift);
         }
     }
-    delete[] shift;
-    delete[] suffix;
 
     return count;
 }
