@@ -1,0 +1,16 @@
+ejecutable;numPatrones;numDocs;tiempo
+./rabin_karp;0;5;1.61e-07
+./rabin_karp;0;10;1.6e-07
+./rabin_karp;0;15;1.6e-07
+./rabin_karp;0;20;1.61e-07
+./rabin_karp;0;25;2.9e-07
+./rabin_karp;0;30;2.7e-07
+./rabin_karp;0;35;1.61e-07
+./rabin_karp;0;40;2.4e-07
+./boyer_moore;200;5;13.9532
+./boyer_moore;200;10;27.725
+./boyer_moore;200;15;41.9432
+./boyer_moore;200;20;55.2543
+./boyer_moore;200;25;70.0716
+./boyer_moore;200;30;83.7953
+./boyer_moore;200;35;96.4844
