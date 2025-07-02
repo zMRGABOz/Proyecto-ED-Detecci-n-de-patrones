@@ -306,27 +306,28 @@ void Precomputar_suffix_arrays(){
 }
 
 //g++ .\SuffixArrayPrefixDoubling.cpp  ../leer_archivos.cpp -o SuffixArrayPrefixDoubling
-//./SuffixArrayPrrefixDoubling
+//./SuffixArrayPrrefixDoubling <ruta a archivo de patrones> <cant_documentos> <tipo documento>
 
 //codigo para evaluar patrones con suffix arrays precomputados
 int main(int argc, char** argv) {
-
-    Precomputar_suffix_arrays();
-
-    /*
-    if (argc < 3) {
-        cerr << "Uso: " << argv[0] << " <ruta a archivo de patrones; > "<< argv[1] << "<cant_documentos>" << endl;
+    cerr << "Inicio del programa" << endl;
+    cout << "hola mundo" << endl;
+    
+    if (argc < 4) {
+        cerr << "Uso: " << argv[0] << " <ruta a archivo de patrones> <cant_documentos> <tipo documento>" << endl;
         return 1;
     }
 
+    cout << argv[1] << argv[2] << argv[3] << endl;
     string ruta_patrones = argv[1];
     int cant_documentos = atoi(argv[2]);
-    string ruta_documentos_base = "../../datos_de_pruebas/documentos/DNA"; //cambiar para probar con otros arhivos
-    string tipo_documento = "DNA"; // Ajusta si usas otro dataset //cambiar para probar con otros archivos
+    string tipo_documento = argv[3];
+    string ruta_documentos_base = "../../datos_de_pruebas/documentos/" + tipo_documento; 
+    cout << ruta_documentos_base << endl;
 
     vector<string> patrones = cargarPatrones(ruta_patrones);
 
-
+    cout << "documentos cargados" << endl;
     // Cargar SA desde archivo binario
     string nombre_archivo = "SA_PD_Precompilados/" + tipo_documento + "_" + to_string(cant_documentos) + ".bin";
     ifstream archivo_bin(nombre_archivo, ios::binary);
@@ -374,5 +375,5 @@ int main(int argc, char** argv) {
 
 
     return 0;
-    */
+    
 }
