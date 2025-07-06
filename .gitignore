@@ -4,21 +4,31 @@ boyer_moore
 *.exe
 
 datos_de_pruebas/documentos/DNA/*
+!datos_de_pruebas/documentos/DNA/.gitkeep
 datos_de_pruebas/documentos/English/*
+!datos_de_pruebas/documentos/English/.gitkeep
 datos_de_pruebas/documentos/Proteins/*
+!datos_de_pruebas/documentos/Proteins/.gitkeep
 datos_de_pruebas/documentos/Sources/*
+!datos_de_pruebas/documentos/Sources/.gitkeep
 datos_de_pruebas/patrones/no_patron_dna/*
+!datos_de_pruebas/patrones/no_patron_dna/.gitkeep
 datos_de_pruebas/patrones/no_patron_english/*
+!datos_de_pruebas/patrones/no_patron_english/.gitkeep
 datos_de_pruebas/patrones/no_patron_protein/*
+!datos_de_pruebas/patrones/no_patron_protein/.gitkeep
 datos_de_pruebas/patrones/no_patron_sources/*
+!datos_de_pruebas/patrones/no_patron_sources/.gitkeep
 datos_de_pruebas/patrones/patrones_dna/*
+!datos_de_pruebas/patrones/patrones_dna/.gitkeep
 datos_de_pruebas/patrones/patrones_english/*
+!datos_de_pruebas/patrones/patrones_english/.gitkeep
 datos_de_pruebas/patrones/patrones_protein/*
+!datos_de_pruebas/patrones/patrones_protein/.gitkeep
 datos_de_pruebas/patrones/patrones_sources/*
+!datos_de_pruebas/patrones/patrones_sources/.gitkeep
 
-!datos_de_pruebas/documentos/.gitkeep
-!datos_de_pruebas/documentos/.gitkeep
-!datos_de_pruebas/patrones/.gitkeep
 src/estructuras_de_datos/SA_PD_Precompilados/*
+!src/estructuras_de_datos/SA_PD_Precompilados/.gitkeep
 utils/creador
 utils/nopatron
