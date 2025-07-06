@@ -1,4 +1,0 @@
-ejecutable;numPatrones;numDocs;tiempo
-./boyer_moore;100;20;10.0625
-./boyer_moore;300;20;28.9551
-./boyer_moore;500;20;48.5789

@@ -18,3 +18,11 @@ do
         ../../src/algoritmos/robin_karp/rk ../../datos_de_pruebas/patrones/patrones_sources/patron_${n} ../../datos_de_pruebas/documentos/Sources 20
     done 
 done
+
+for ((c=1;c<=20;c++))
+do
+    for n in 100 300 500 
+    do 
+        ../../src/estructuras_de_datos/SuffixArrayPrefixDoubling ../../datos_de_pruebas/patrones/patrones_sources/patron_${n} ../../datos_de_pruebas/documentos/Sources 20
+    done
+done
