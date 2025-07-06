@@ -1,3 +1,8 @@
+/**
+ * Funcion donada por Oliver Peñailillo. 
+ * Gracias a Oliver y su grupo por ayudarnos con esta función. 
+ * Obtenida de: https://github.com/Sephir0ath/file-pattern-analyzer 
+ */
 #include "leer_archivos.h"
 #include <iostream>
 #include <filesystem>

@@ -20,9 +20,9 @@ void insertarElemAleatorios(const std::string& archivo_entrada, const std::strin
         std::uniform_int_distribution<> dist(0, linea.size()); // puede ser al inicio o al final también
         int pos = dist(gen);
 
-        linea.insert(pos, "ಠ_ಠ"); 
+        linea.insert(pos, "ç"); 
         // para ADN, inglés, protein = ñ o Ñ
-        // para sources = ಠ_ಠ
+        // para sources = ç
         salida << linea << "\n";
     }
 

@@ -5,12 +5,13 @@
 
 // Compilacion: 
 // g++ -std=c++17 -o boyer_moore main_boyer_moore.cpp boyer_moore.cpp ../../leer_archivos.cpp -I../../
-// ./boyer_moore
 
 int main(int argc,  char** argv) {
-    if(argc < 4) 
+    if(argc < 4) {  
         cerr << "Uso: " << argv[0] << " <ruta a patron> <ruta documento> <numero de archivos>" << endl;  
-    
+        return 1;
+    }
+
     string ruta_documentos = argv [2];
     string ruta_patron = argv[1];
     int cant_documentos = atoi(argv[3]);

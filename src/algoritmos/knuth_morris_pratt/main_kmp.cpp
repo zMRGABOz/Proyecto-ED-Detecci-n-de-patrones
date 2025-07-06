@@ -5,13 +5,12 @@
 
 // Compilacion: 
 // g++ -std=c++17 -o kmp main_kmp.cpp Knuth-Morris-Pratt.cpp ../../leer_archivos.cpp -I../../
-// ./kmp
 
 int main(int argc,  char** argv) {
-    if(argc < 4) 
+    if(argc < 4) {
         cerr << "Uso: " << argv[0] << " <ruta a patron> <ruta documento> <numero de archivos>" << endl;  
-    
-    //string ruta_documentos = "../../../datos_de_pruebas/documentos/DNA";
+        return 1;
+    }
     string ruta_documentos = argv [2];
     string ruta_patron = argv[1];
     int num_docs = atoi(argv[3]);
@@ -21,15 +20,8 @@ int main(int argc,  char** argv) {
 
     auto start = chrono::high_resolution_clock::now();
     for(auto& patron : patrones){
-        //cout<< "El patron a probar es: " << patron<<endl;
         for(auto& doc : docs) {
-            //auto start = chrono::high_resolution_clock::now();
-            int freq = KMP(doc.text, patron);
-            //auto end = chrono::high_resolution_clock::now();
-            //double running_time = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-            //running_time *= 1e-9; // Convertir a segundos
-            //cout << argv[0] << ";" << patrones.size()<< ";"<< freq << ";" << running_time << endl;
-          
+            int freq = KMP(doc.text, patron); 
         }
     }
     auto end = chrono::high_resolution_clock::now();

@@ -1,13 +1,24 @@
 # Ignorar ejecutables generados
 boyer_moore
-a.out
+*.out
 *.exe
 
-datos_de_pruebas/documentos/*
-datos_de_pruebas/patrones/*
+datos_de_pruebas/documentos/DNA/*
+datos_de_pruebas/documentos/English/*
+datos_de_pruebas/documentos/Proteins/*
+datos_de_pruebas/documentos/Sources/*
+datos_de_pruebas/patrones/no_patron_dna/*
+datos_de_pruebas/patrones/no_patron_english/*
+datos_de_pruebas/patrones/no_patron_protein/*
+datos_de_pruebas/patrones/no_patron_sources/*
+datos_de_pruebas/patrones/patrones_dna/*
+datos_de_pruebas/patrones/patrones_english/*
+datos_de_pruebas/patrones/patrones_protein/*
+datos_de_pruebas/patrones/patrones_sources/*
 !datos_de_pruebas/documentos/.gitkeep
 !datos_de_pruebas/patrones/.gitkeepdatos_de_pruebas/documentos/*
-datos_de_pruebas/patrones/*
 !datos_de_pruebas/documentos/.gitkeep
 !datos_de_pruebas/patrones/.gitkeep
 src/estructuras_de_datos/SA_PD_Precompilados/*
+utils/creador
+utils/nopatron

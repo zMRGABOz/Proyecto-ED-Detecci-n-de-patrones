@@ -16,7 +16,7 @@ void badCharHeuristic(string pat, int size, int badchar[NO_OF_CHARS]) {
         badchar[i] = -1; 
     
     // Actualiza con las posiciones reales.
-    // La conversion (int)str[i] obtiene el valor ASCII del carácter. 
+    // La conversion (unsigned char)pat[i] obtiene el valor ASCII del carácter. 
     for (int i = 0; i < size; i++)
         badchar[(unsigned char)pat[i]] = i;
 }
@@ -43,7 +43,6 @@ int searchBM(const string& txt, const string& pat) {
             j--;
         
         if (j < 0) {
-            //cout << "Patrón se produce en el turno = " << s << endl;
             count ++;
             // Calcular siguiente desplazamiento
             // Si hay más texto después del patrón, usar bad character

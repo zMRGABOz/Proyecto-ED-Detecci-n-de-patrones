@@ -26,9 +26,24 @@ Este proyecto implementa diferentes algoritmos y estructuras de datos para la b�
 - Suffix Array (con Prefix doubling).
 
 ## Instrucciones de uso
-Una vez clonado el repositorio y teniendo descargados los datasets: DNA, English, Proteins, Sources. Se debe proceder a crear los patrones existentes compilan el archivo utils/creador_patrones.cpp
+Una vez clonado el repositorio y teniendo descargados los datasets: DNA, English, Proteins, Sources. Se debe proceder a crear los patrones existentes compilando el archivo utils/creador_patrones.cpp .
 ```
-
+g++ -o creador creador_patrones.cpp
+```
+Luego ir modificando la ruta de entrada y de salida.
+Una vez teniendo los patrones, se puede ejecutar el archivo utils/insertar_aleatorio.cpp
+modificando la ruta de entrada y salida. 
+```
+g++ -o nopatron insertar_aleatorio.cpp 
+```
+Además se deben precomputar las estructuras, ejecutando el archivo src/estructuras_de_datos/main_precomputar.cpp .
+```
+g++ -o precomputar main_precomputar.cpp SuffixArrayPrefixDoubling.cpp ../leer_archivos.cpp
+```
+Por último, se debe compilar cada uno de los algoritmos (funciones main solamente).
+Una vez hecho todo lo anterior, se puede proceder a correr algun tipo de test. Para ello, primero debe posicionarse en la carpeta test y ejecutar, por ejemplo (Dentro de DNA): 
+```
+bash archivo_fijo.sh > a_resultados_archivo_fijo_dna.csv
 ```
 
 ## 👥 Contribuidores
