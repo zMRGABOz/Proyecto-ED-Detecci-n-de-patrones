@@ -15,8 +15,8 @@ datos_de_pruebas/patrones/patrones_dna/*
 datos_de_pruebas/patrones/patrones_english/*
 datos_de_pruebas/patrones/patrones_protein/*
 datos_de_pruebas/patrones/patrones_sources/*
+
 !datos_de_pruebas/documentos/.gitkeep
-!datos_de_pruebas/patrones/.gitkeepdatos_de_pruebas/documentos/*
 !datos_de_pruebas/documentos/.gitkeep
 !datos_de_pruebas/patrones/.gitkeep
 src/estructuras_de_datos/SA_PD_Precompilados/*
