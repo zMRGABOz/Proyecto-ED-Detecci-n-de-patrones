@@ -7,7 +7,7 @@ Este proyecto implementa diferentes algoritmos y estructuras de datos para la b�
 ```
 .
 ├── datos_de_pruebas/
-│   ├── documentos/    # Satasets empleados en los experimentos
+│   ├── documentos/    # Datasets empleados en los experimentos
 │   └── patrones/       # Patrones de busqueda
 ├── src/                    # Código fuente
 │   ├── algoritmos/        # Implementaciones de algoritmos de búsqueda
